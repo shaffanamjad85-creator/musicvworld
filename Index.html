@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicWorld.com - Your Ultimate Music Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ff6b6b;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: #4ecdc4;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 2px solid #4ecdc4;
+            color: #4ecdc4;
+        }
+
+        .btn-signup {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #1a1a2e;
+            padding: 15px 0;
+            margin-top: 10px;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .nav-links a.active {
+            color: #ff6b6b;
+            border-bottom: 2px solid #ff6b6b;
+        }
+
+        .dropdown {
+            position: absolute;
+            background-color: #16213e;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            display: none;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 30px;
+            padding: 5px 15px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            padding: 8px;
+            width: 200px;
+            background: transparent;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            color: #302b63;
+            cursor: pointer;
+        }
+
+        /* Main Content Area */
+        #content {
+            min-height: 500px;
+            padding: 40px 0;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #1a1a2e;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Home Page Styles */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin: 40px 0 30px;
+            color: #1a1a2e;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: #ff6b6b;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 25px 15px;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #302b63;
+        }
+
+        .category-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .featured-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .featured-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .featured-content {
+            padding: 20px;
+        }
+
+        .featured-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Category Page Styles */
+        .category-header {
+            background: linear-gradient(135deg, #302b63, #24243e);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .category-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .category-header p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-nav button {
+            padding: 10px 25px;
+            background: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .category-nav button.active {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .category-nav button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-content {
+            display: none;
+        }
+
+        .category-content.active {
+            display: block;
+        }
+
+        .artist-grid, .album-grid, .instrument-grid, .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .artist-card, .album-card, .instrument-card, .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover, .album-card:hover, .instrument-card:hover, .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* New Releases Page */
+        .filter-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-options select {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: white;
+        }
+
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .release-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .release-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .release-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .release-content {
+            padding: 15px;
+        }
+
+        .release-content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .release-content .artist {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .release-content .date {
+            color: #888;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Events Page */
+        .events-calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .event-card-large {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .event-card-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .event-details {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+        }
+
+        .event-date {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .event-date .day {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+
+        .event-date .month {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .event-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .event-info .location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Reviews Page */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reviewer-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+        }
+
+        .review-rating {
+            color: #ffc107;
+        }
+
+        .review-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .review-body {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .top-rated {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-rated h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .top-rated-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .top-rated-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-rated-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .top-rated-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .top-rated-info .rating {
+            color: #ffc107;
+            font-size: 13px;
+        }
+
+        /* Articles Page */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .article-content p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* User Type Info */
+        .user-types {
+            background: #16213e;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .user-type {
+            padding: 20px;
+            max-width: 300px;
+        }
+
+        .user-type h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+        }
+
+        .user-type i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        /* Luxury Footer */
+        footer {
+            background: #0f0c29;
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .footer-logo span {
+            color: #4ecdc4;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #b0b0b0;
+        }
+
+        .footer-links h3, .footer-contact h3, .footer-newsletter h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3:after, .footer-contact h3:after, .footer-newsletter h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: #ff6b6b;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            color: #b0b0b0;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #4ecdc4;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .footer-newsletter input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+
+        .footer-newsletter button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .footer-newsletter button:hover {
+            background: #ff5252;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #ff6b6b;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+
+        /* Login/Signup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #302b63, #24243e);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .featured-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-types {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-links h3:after, .footer-contact h3:after, .footer-newsletter h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .category-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-nav button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .filter-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <div class="logo" onclick="loadPage('home')">Music<span>World</span>.com</div>
+                <div class="auth-buttons">
+                    <button class="btn btn-login" onclick="showLoginModal()"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="btn btn-signup" onclick="showSignupModal()"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" onclick="loadPage('home')"><i class="fas fa-home"></i> Home</a></li>
+                    <li>
+                        <a href="#" class="nav-link" onclick="loadPage('categories')"><i class="fas fa-music"></i> Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown">
+                            <a href="#" onclick="loadCategory('rock')">Rock</a>
+                            <a href="#" onclick="loadCategory('jazz')">Jazz</a>
+                            <a href="#" onclick="loadCategory('pop')">Pop</a>
+                            <a href="#" onclick="loadCategory('rap')">Rap</a>
+                            <a href="#" onclick="loadCategory('classical')">Classical</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="nav-link" onclick="loadPage('events')"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#" class="nav-link" onclick="loadPage('releases')"><i class="fas fa-star"></i> New Releases</a></li>
+                    <li><a href="#" class="nav-link" onclick="loadPage('bestofyear')"><i class="fas fa-trophy"></i> Best of Year</a></li>
+                    <li><a href="#" class="nav-link" onclick="loadPage('reviews')"><i class="fas fa-comments"></i> Reviews</a></li>
+                    <li><a href="#" class="nav-link" onclick="loadPage('articles')"><i class="fas fa-newspaper"></i> Articles</a></li>
+                </ul>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search artist, album, or date...">
+                    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div id="content" class="container">
+        <!-- Home Page Content (default) -->
+        <div id="home-page" class="page-content">
+            <section class="hero">
+                <h1>Discover the World of Music</h1>
+                <p>Explore artists, albums, instruments, and events across all genres. Your ultimate destination for everything music.</p>
+                <button class="btn btn-signup" style="padding: 15px 30px; font-size: 16px;" onclick="loadPage('categories')">Explore Now</button>
+            </section>
+
+            <h2 class="section-title">Music Categories</h2>
+            <div class="categories">
+                <div class="category-card" onclick="loadCategory('rock')">
+                    <div class="category-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Rock</h3>
+                    <p>From classic to alternative rock</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('jazz')">
+                    <div class="category-icon">
+                        <i class="fas fa-saxophone"></i>
+                    </div>
+                    <h3>Jazz</h3>
+                    <p>Smooth rhythms and improvisation</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('pop')">
+                    <div class="category-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Pop</h3>
+                    <p>Chart-topping hits and artists</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('rap')">
+                    <div class="category-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Rap</h3>
+                    <p>Hip-hop culture and rhythms</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('classical')">
+                    <div class="category-icon">
+                        <i class="fas fa-violin"></i>
+                    </div>
+                    <h3>Classical</h3>
+                    <p>Timeless compositions and masters</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Featured Content</h2>
+            <div class="featured-section">
+                <div class="featured-card">
+                    <div class="featured-img" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="featured-content">
+                        <div class="badge">New Release</div>
+                        <h3>Album of the Month</h3>
+                        <p>Discover the latest chart-topping album with exclusive artist interviews and behind-the-scenes content.</p>
+                        <button class="btn" style="padding: 8px 15px; margin-top: 10px; background: #4ecdc4; color: white;" onclick="loadPage('releases')">Explore</button>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-img" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="featured-content">
+                        <div class="badge">Best of 2023</div>
+                        <h3>Top Artists Collection</h3>
+                        <p>Explore the most influential artists of the year and their career achievements.</p>
+                        <button class="btn" style="padding: 8px 15px; margin-top: 10px; background: #4ecdc4; color: white;" onclick="loadPage('bestofyear')">Explore</button>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-img" style="background-image: url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="featured-content">
+                        <div class="badge">Upcoming Events</div>
+                        <h3>Music Festivals & Concerts</h3>
+                        <p>Find information about upcoming music events in your favorite categories.</p>
+                        <button class="btn" style="padding: 8px 15px; margin-top: 10px; background: #4ecdc4; color: white;" onclick="loadPage('events')">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">User Benefits</h2>
+            <div class="user-types">
+                <div class="user-type">
+                    <i class="fas fa-user"></i>
+                    <h3>Non-Registered Users</h3>
+                    <p>Browse all content, listen to albums, read articles and reviews, search by artist, album, or release date.</p>
+                </div>
+                <div class="user-type">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Registered Users</h3>
+                    <p>All non-registered features PLUS download complete albums, create playlists, save favorites, and get personalized recommendations.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other pages will be loaded here dynamically -->
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to MusicWorld</h2>
+                <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-signup" style="width: 100%; padding: 15px;">Login</button>
+                <p style="text-align: center; margin-top: 15px;">Don't have an account? <a href="#" onclick="closeModal('loginModal'); showSignupModal();" style="color: #ff6b6b;">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join MusicWorld</h2>
+                <span class="close-modal" onclick="closeModal('signupModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                </div>
+                <button class="btn btn-signup" style="width: 100%; padding: 15px;">Create Account</button>
+                <p style="text-align: center; margin-top: 15px;">Already have an account? <a href="#" onclick="closeModal('signupModal'); showLoginModal();" style="color: #ff6b6b;">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Luxury Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo" onclick="loadPage('home')">Music<span>World</span>.com</div>
+                    <p>Your ultimate destination for everything music. Explore artists, albums, instruments, and events across all genres. Discover, listen, and immerse yourself in the world of music.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="loadPage('home')">Home</a></li>
+                        <li><a href="#" onclick="loadPage('categories')">Music Categories</a></li>
+                        <li><a href="#" onclick="loadPage('releases')">New Releases</a></li>
+                        <li><a href="#" onclick="loadPage('bestofyear')">Best of Year</a></li>
+                        <li><a href="#" onclick="loadPage('events')">Events</a></li>
+                        <li><a href="#" onclick="loadPage('reviews')">Reviews</a></li>
+                        <li><a href="#" onclick="loadPage('articles')">Articles</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Music Street, Harmony City, HC 10001</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@musicworld.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new releases, events, and exclusive content.</p>
+                    <form id="newsletterForm">
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MusicWorld.com. All rights reserved. | Designed with <i class="fas fa-heart" style="color:#ff6b6b;"></i> for music lovers worldwide</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- All Page Templates -->
+    <div id="page-templates" style="display: none;">
+        <!-- Categories Page -->
+        <div id="categories-page">
+            <h1 class="page-title">Music Categories</h1>
+            <p class="page-subtitle">Explore music by genre. Each category includes artists, albums, instruments, and events.</p>
+            
+            <div class="categories">
+                <div class="category-card" onclick="loadCategory('rock')">
+                    <div class="category-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Rock</h3>
+                    <p>From classic to alternative rock</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('jazz')">
+                    <div class="category-icon">
+                        <i class="fas fa-saxophone"></i>
+                    </div>
+                    <h3>Jazz</h3>
+                    <p>Smooth rhythms and improvisation</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('pop')">
+                    <div class="category-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Pop</h3>
+                    <p>Chart-topping hits and artists</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('rap')">
+                    <div class="category-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Rap</h3>
+                    <p>Hip-hop culture and rhythms</p>
+                </div>
+                <div class="category-card" onclick="loadCategory('classical')">
+                    <div class="category-icon">
+                        <i class="fas fa-violin"></i>
+                    </div>
+                    <h3>Classical</h3>
+                    <p>Timeless compositions and masters</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Detail Page Template -->
+        <div id="category-detail-template">
+            <div class="category-header">
+                <h1 id="category-title">Rock Music</h1>
+                <p id="category-description">Explore artists, albums, instruments, and events in this genre</p>
+            </div>
+            
+            <div class="category-nav">
+                <button class="cat-nav-btn active" data-section="artists">Artists</button>
+                <button class="cat-nav-btn" data-section="albums">Albums</button>
+                <button class="cat-nav-btn" data-section="instruments">Instruments</button>
+                <button class="cat-nav-btn" data-section="events">Events</button>
+            </div>
+            
+            <!-- Artists Section -->
+            <div id="artists-section" class="category-content active">
+                <h2 class="section-title">Featured Artists</h2>
+                <div class="artist-grid">
+                    <!-- Artists will be loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Albums Section -->
+            <div id="albums-section" class="category-content">
+                <h2 class="section-title">Popular Albums</h2>
+                <div class="album-grid">
+                    <!-- Albums will be loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Instruments Section -->
+            <div id="instruments-section" class="category-content">
+                <h2 class="section-title">Key Instruments</h2>
+                <div class="instrument-grid">
+                    <!-- Instruments will be loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Events Section -->
+            <div id="events-section" class="category-content">
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="event-grid">
+                    <!-- Events will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- New Releases Page -->
+        <div id="releases-page">
+            <h1 class="page-title">New Releases</h1>
+            <p class="page-subtitle">Discover the latest albums and singles from all genres. Updated weekly.</p>
+            
+            <div class="filter-bar">
+                <h3>Filter Releases</h3>
+                <div class="filter-options">
+                    <select id="genreFilter">
+                        <option value="all">All Genres</option>
+                        <option value="rock">Rock</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="pop">Pop</option>
+                        <option value="rap">Rap</option>
+                        <option value="classical">Classical</option>
+                    </select>
+                    <select id="timeFilter">
+                        <option value="all">All Time</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="year">This Year</option>
+                    </select>
+                    <select id="sortFilter">
+                        <option value="newest">Newest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="az">A-Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="releases-grid">
+                <!-- Releases will be loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- Best of Year Page -->
+        <div id="bestofyear-page">
+            <h1 class="page-title">Best of 2023</h1>
+            <p class="page-subtitle">The top albums, artists, and songs of the year based on reviews, sales, and streaming data.</p>
+            
+            <div class="category-nav" style="margin-bottom: 40px;">
+                <button class="best-nav-btn active" data-section="topalbums">Top Albums</button>
+                <button class="best-nav-btn" data-section="topartists">Top Artists</button>
+                <button class="best-nav-btn" data-section="topsongs">Top Songs</button>
+            </div>
+            
+            <!-- Top Albums Section -->
+            <div id="topalbums-section" class="category-content active">
+                <h2 class="section-title">Top Albums of 2023</h2>
+                <div class="album-grid">
+                    <!-- Top albums will be loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Top Artists Section -->
+            <div id="topartists-section" class="category-content">
+                <h2 class="section-title">Top Artists of 2023</h2>
+                <div class="artist-grid">
+                    <!-- Top artists will be loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- Top Songs Section -->
+            <div id="topsongs-section" class="category-content">
+                <h2 class="section-title">Top Songs of 2023</h2>
+                <div class="releases-grid">
+                    <!-- Top songs will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Page -->
+        <div id="events-page">
+            <h1 class="page-title">Music Events</h1>
+            <p class="page-subtitle">Find concerts, festivals, and music events happening near you and worldwide.</p>
+            
+            <div class="filter-bar">
+                <h3>Filter Events</h3>
+                <div class="filter-options">
+                    <select id="eventTypeFilter">
+                        <option value="all">All Events</option>
+                        <option value="concert">Concerts</option>
+                        <option value="festival">Festivals</option>
+                        <option value="award">Award Shows</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="eventLocationFilter">
+                        <option value="all">All Locations</option>
+                        <option value="northamerica">North America</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="online">Online</option>
+                    </select>
+                    <select id="eventDateFilter">
+                        <option value="all">All Dates</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="thisweek">This Week</option>
+                        <option value="thismonth">This Month</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="events-calendar">
+                <!-- Events will be loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- Reviews Page -->
+        <div id="reviews-page">
+            <h1 class="page-title">Music Reviews</h1>
+            <p class="page-subtitle">Read expert and user reviews of albums, artists, and concerts.</p>
+            
+            <div class="reviews-container">
+                <div class="reviews-list">
+                    <!-- Reviews will be loaded dynamically -->
+                </div>
+                
+                <div class="top-rated">
+                    <h3>Top Rated This Week</h3>
+                    <div class="top-rated-list">
+                        <!-- Top rated items will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Page -->
+        <div id="articles-page">
+            <h1 class="page-title">Music Articles</h1>
+            <p class="page-subtitle">Read the latest news, interviews, and features from the world of music.</p>
+            
+            <div class="filter-bar">
+                <h3>Filter Articles</h3>
+                <div class="filter-options">
+                    <select id="articleCategoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="news">News</option>
+                        <option value="interviews">Interviews</option>
+                        <option value="features">Features</option>
+                        <option value="guides">Guides</option>
+                    </select>
+                    <select id="articleGenreFilter">
+                        <option value="all">All Genres</option>
+                        <option value="rock">Rock</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="pop">Pop</option>
+                        <option value="rap">Rap</option>
+                        <option value="classical">Classical</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- Articles will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Management
+        let currentPage = 'home';
+        let currentCategory = null;
+
+        // Unique music photo collection - 30+ different music-related images
+        const musicPhotos = {
+            rock: [
+                'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            jazz: [
+                'https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1526281216101-ea7a37d788d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            pop: [
+                'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            rap: [
+                'https://images.unsplash.com/photo-1520877880798-5ee004e3f11e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1520966348531-eaf3a6836e69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            classical: [
+                'https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1526281216101-ea7a37d788d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            events: [
+                'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1501281668745-f6f2612e4e18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            instruments: [
+                'https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1499415479124-43c32433a620?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1526281216101-ea7a37d788d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            general: [
+                'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1501281668745-f6f2612e4e18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ]
+        };
+
+        // Get a unique photo for each item
+        function getUniquePhoto(category, index) {
+            const photos = musicPhotos[category] || musicPhotos.general;
+            return photos[index % photos.length];
+        }
+
+        // Sample data for dynamic content
+        const categoryData = {
+            rock: {
+                title: "Rock Music",
+                description: "From classic rock to modern alternative, explore the powerful world of guitar-driven music.",
+                artists: [
+                    { name: "The Rolling Stones", details: "Formed in 1962, one of the most influential rock bands in history." },
+                    { name: "Foo Fighters", details: "American rock band formed in 1994 by Nirvana drummer Dave Grohl." },
+                    { name: "Led Zeppelin", details: "English rock band formed in 1968, known for their heavy sound." },
+                    { name: "Arctic Monkeys", details: "English rock band formed in 2002 in Sheffield." }
+                ],
+                albums: [
+                    { name: "Back in Black", artist: "AC/DC", year: "1980" },
+                    { name: "The Dark Side of the Moon", artist: "Pink Floyd", year: "1973" },
+                    { name: "Nevermind", artist: "Nirvana", year: "1991" },
+                    { name: "Appetite for Destruction", artist: "Guns N' Roses", year: "1987" }
+                ],
+                instruments: [
+                    { name: "Electric Guitar", description: "The iconic instrument of rock music" },
+                    { name: "Drum Kit", description: "Provides the powerful rhythm section" },
+                    { name: "Bass Guitar", description: "Creates the low-end foundation" },
+                    { name: "Keyboard/Synthesizer", description: "Adds texture and atmosphere" }
+                ],
+                events: [
+                    { name: "Rock Fest 2023", date: "15-18", month: "DEC", location: "Los Angeles, CA" },
+                    { name: "Guitar Masters Concert", date: "22", month: "DEC", location: "London, UK" },
+                    { name: "Alternative Rock Night", date: "5", month: "JAN", location: "Chicago, IL" },
+                    { name: "Classic Rock Revival", date: "12", month: "JAN", location: "New York, NY" }
+                ]
+            },
+            jazz: {
+                title: "Jazz Music",
+                description: "Explore the world of improvisation, swing, and soulful melodies.",
+                artists: [
+                    { name: "Miles Davis", details: "American trumpeter, bandleader, and composer." },
+                    { name: "John Coltrane", details: "American jazz saxophonist and composer." },
+                    { name: "Ella Fitzgerald", details: "American jazz singer often referred to as the First Lady of Song." },
+                    { name: "Louis Armstrong", details: "American trumpeter and vocalist, one of the most influential figures in jazz." }
+                ],
+                albums: [
+                    { name: "Kind of Blue", artist: "Miles Davis", year: "1959" },
+                    { name: "A Love Supreme", artist: "John Coltrane", year: "1965" },
+                    { name: "Time Out", artist: "Dave Brubeck", year: "1959" },
+                    { name: "The Shape of Jazz to Come", artist: "Ornette Coleman", year: "1959" }
+                ],
+                instruments: [
+                    { name: "Saxophone", description: "Iconic jazz wind instrument" },
+                    { name: "Trumpet", description: "Brass instrument central to jazz" },
+                    { name: "Double Bass", description: "Provides the walking basslines" },
+                    { name: "Piano", description: "Harmonic foundation of jazz" }
+                ],
+                events: [
+                    { name: "International Jazz Festival", date: "10-12", month: "DEC", location: "New Orleans, LA" },
+                    { name: "Smooth Jazz Night", date: "20", month: "DEC", location: "Chicago, IL" },
+                    { name: "Jazz Improv Workshop", date: "8", month: "JAN", location: "New York, NY" },
+                    { name: "Bebop Revival Concert", date: "15", month: "JAN", location: "Paris, France" }
+                ]
+            },
+            pop: {
+                title: "Pop Music",
+                description: "Chart-topping hits and mainstream artists from around the world.",
+                artists: [
+                    { name: "Taylor Swift", details: "American singer-songwriter known for narrative songwriting." },
+                    { name: "Beyoncé", details: "American singer, songwriter, and actress." },
+                    { name: "Ed Sheeran", details: "English singer-songwriter known for his soulful voice." },
+                    { name: "Ariana Grande", details: "American singer, songwriter, and actress." }
+                ],
+                albums: [
+                    { name: "1989", artist: "Taylor Swift", year: "2014" },
+                    { name: "Lemonade", artist: "Beyoncé", year: "2016" },
+                    { name: "÷ (Divide)", artist: "Ed Sheeran", year: "2017" },
+                    { name: "thank u, next", artist: "Ariana Grande", year: "2019" }
+                ],
+                instruments: [
+                    { name: "Synthesizer", description: "Electronic keyboard for creating modern sounds" },
+                    { name: "Drum Machine", description: "Electronic device for programming beats" },
+                    { name: "Auto-Tune", description: "Pitch correction software" },
+                    { name: "Electric Piano", description: "Digital keyboard instrument" }
+                ],
+                events: [
+                    { name: "Pop Music Awards 2023", date: "5", month: "DEC", location: "Los Angeles, CA" },
+                    { name: "Summer Pop Festival", date: "18", month: "DEC", location: "Miami, FL" },
+                    { name: "Chart-Toppers Concert", date: "3", month: "JAN", location: "London, UK" },
+                    { name: "Pop Sensations Tour", date: "20", month: "JAN", location: "Tokyo, Japan" }
+                ]
+            },
+            rap: {
+                title: "Rap & Hip-Hop",
+                description: "From old school to modern trap, explore the culture and beats.",
+                artists: [
+                    { name: "Kendrick Lamar", details: "American rapper known for his complex lyrics." },
+                    { name: "Drake", details: "Canadian rapper and global superstar." },
+                    { name: "Cardi B", details: "American rapper known for her bold personality." },
+                    { name: "Travis Scott", details: "American rapper known for his atmospheric production." }
+                ],
+                albums: [
+                    { name: "To Pimp a Butterfly", artist: "Kendrick Lamar", year: "2015" },
+                    { name: "Take Care", artist: "Drake", year: "2011" },
+                    { name: "Invasion of Privacy", artist: "Cardi B", year: "2018" },
+                    { name: "Astroworld", artist: "Travis Scott", year: "2018" }
+                ],
+                instruments: [
+                    { name: "Turntables", description: "Used for scratching and mixing" },
+                    { name: "Sampler", description: "Electronic device for sampling sounds" },
+                    { name: "Drum Machine", description: "Creates hip-hop beats" },
+                    { name: "MIDI Controller", description: "For digital music production" }
+                ],
+                events: [
+                    { name: "Hip-Hop Festival", date: "8-10", month: "DEC", location: "Atlanta, GA" },
+                    { name: "Rap Battle Championship", date: "15", month: "DEC", location: "New York, NY" },
+                    { name: "Urban Music Awards", date: "10", month: "JAN", location: "Los Angeles, CA" },
+                    { name: "Trap Music Night", date: "18", month: "JAN", location: "Houston, TX" }
+                ]
+            },
+            classical: {
+                title: "Classical Music",
+                description: "Timeless compositions from the masters of orchestral music.",
+                artists: [
+                    { name: "Ludwig van Beethoven", details: "German composer and pianist, a crucial figure in classical music." },
+                    { name: "Wolfgang Amadeus Mozart", details: "Prolific Austrian composer of the Classical period." },
+                    { name: "Johann Sebastian Bach", details: "German composer of the Baroque period." },
+                    { name: "Pyotr Ilyich Tchaikovsky", details: "Russian composer known for ballets and symphonies." }
+                ],
+                albums: [
+                    { name: "Symphony No. 9", artist: "Beethoven", year: "1824" },
+                    { name: "The Four Seasons", artist: "Vivaldi", year: "1723" },
+                    { name: "Eine kleine Nachtmusik", artist: "Mozart", year: "1787" },
+                    { name: "Swan Lake", artist: "Tchaikovsky", year: "1876" }
+                ],
+                instruments: [
+                    { name: "Violin", description: "String instrument with a wide range" },
+                    { name: "Piano", description: "Versatile keyboard instrument" },
+                    { name: "Cello", description: "Deep, resonant string instrument" },
+                    { name: "French Horn", description: "Brass instrument with mellow tone" }
+                ],
+                events: [
+                    { name: "Classical Symphony Night", date: "12", month: "DEC", location: "Vienna, Austria" },
+                    { name: "Opera Gala", date: "20", month: "DEC", location: "Milan, Italy" },
+                    { name: "Chamber Music Festival", date: "7", month: "JAN", location: "Berlin, Germany" },
+                    { name: "Piano Masters Concert", date: "14", month: "JAN", location: "Paris, France" }
+                ]
+            }
+        };
+
+        // Load a page dynamically
+        function loadPage(page) {
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Highlight the current page in nav
+            if (page === 'home') {
+                document.querySelector('.nav-link[onclick="loadPage(\'home\')"]').classList.add('active');
+            } else if (page === 'categories' || page.startsWith('category-')) {
+                document.querySelector('.nav-link[onclick="loadPage(\'categories\')"]').classList.add('active');
+            } else {
+                const navLink = document.querySelector(`.nav-link[onclick="loadPage('${page}')"]`);
+                if (navLink) navLink.classList.add('active');
+            }
+            
+            // Get the page template
+            const template = document.getElementById(`${page}-page`);
+            if (template) {
+                document.getElementById('content').innerHTML = template.innerHTML;
+                currentPage = page;
+                
+                // Initialize page-specific functionality
+                if (page === 'releases') {
+                    loadReleases();
+                } else if (page === 'bestofyear') {
+                    loadBestOfYear();
+                } else if (page === 'events') {
+                    loadEvents();
+                } else if (page === 'reviews') {
+                    loadReviews();
+                } else if (page === 'articles') {
+                    loadArticles();
+                }
+            }
+        }
+
+        // Load a specific category
+        function loadCategory(category) {
+            loadPage('categories');
+            
+            // Get category data
+            const data = categoryData[category];
+            if (!data) return;
+            
+            currentCategory = category;
+            
+            // Create category detail page
+            const template = document.getElementById('category-detail-template').cloneNode(true);
+            template.id = '';
+            
+            // Set category title and description
+            template.querySelector('#category-title').textContent = data.title;
+            template.querySelector('#category-description').textContent = data.description;
+            
+            // Load artists
+            const artistGrid = template.querySelector('.artist-grid');
+            artistGrid.innerHTML = '';
+            data.artists.forEach((artist, index) => {
+                artistGrid.innerHTML += `
+                    <div class="artist-card">
+                        <div class="card-img" style="background-image: url('${getUniquePhoto(category, index)}')"></div>
+                        <div class="card-content">
+                            <h3>${artist.name}</h3>
+                            <p>${artist.details}</p>
+                            <div class="card-details">
+                                <span><i class="fas fa-music"></i> ${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                <button class="btn" style="padding: 5px 10px; font-size: 12px;" onclick="viewArtistDetails('${artist.name}')">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Load albums
+            const albumGrid = template.querySelector('.album-grid');
+            albumGrid.innerHTML = '';
+            data.albums.forEach((album, index) => {
+                albumGrid.innerHTML += `
+                    <div class="album-card">
+                        <div class="card-img" style="background-image: url('${getUniquePhoto('general', index + 4)}')"></div>
+                        <div class="card-content">
+                            <h3>${album.name}</h3>
+                            <p>Artist: ${album.artist}</p>
+                            <div class="card-details">
+                                <span><i class="fas fa-calendar"></i> ${album.year}</span>
+                                <span><i class="fas fa-headphones"></i> 12 Songs</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Load instruments
+            const instrumentGrid = template.querySelector('.instrument-grid');
+            instrumentGrid.innerHTML = '';
+            data.instruments.forEach((instrument, index) => {
+                instrumentGrid.innerHTML += `
+                    <div class="instrument-card">
+                        <div class="card-img" style="background-image: url('${getUniquePhoto('instruments', index)}')"></div>
+                        <div class="card-content">
+                            <h3>${instrument.name}</h3>
+                            <p>${instrument.description}</p>
+                            <div class="card-details">
+                                <span><i class="fas fa-guitar"></i> Instrument</span>
+                                <span>Key to ${category} music</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Load events
+            const eventGrid = template.querySelector('.event-grid');
+            eventGrid.innerHTML = '';
+            data.events.forEach((event, index) => {
+                eventGrid.innerHTML += `
+                    <div class="event-card">
+                        <div class="card-img" style="background-image: url('${getUniquePhoto('events', index)}')"></div>
+                        <div class="card-content">
+                            <h3>${event.name}</h3>
+                            <p>Location: ${event.location}</p>
+                            <div class="card-details">
+                                <span><i class="fas fa-calendar"></i> ${event.month} ${event.date}</span>
+                                <span><i class="fas fa-map-marker-alt"></i> ${event.location.split(',')[0]}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Add event listeners for category navigation
+            template.querySelectorAll('.cat-nav-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    
+                    // Update active button
+                    template.querySelectorAll('.cat-nav-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show the selected section
+                    template.querySelectorAll('.category-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    template.querySelector(`#${section}-section`).classList.add('active');
+                });
+            });
+            
+            // Set the content
+            document.getElementById('content').innerHTML = '';
+            document.getElementById('content').appendChild(template);
+            
+            // Update page title
+            document.title = `${data.title} - MusicWorld.com`;
+        }
+
+        // Load new releases
+        function loadReleases() {
+            const releasesGrid = document.querySelector('.releases-grid');
+            if (!releasesGrid) return;
+            
+            releasesGrid.innerHTML = '';
+            
+            const releases = [
+                { title: "Midnight Dreams", artist: "Luna Shadows", date: "Dec 1, 2023", genre: "Pop" },
+                { title: "Electric Echoes", artist: "Neon Pulse", date: "Nov 25, 2023", genre: "Electronic" },
+                { title: "Soul Revolution", artist: "The Groove Masters", date: "Nov 20, 2023", genre: "R&B" },
+                { title: "Guitar Legends", artist: "Axel Thunder", date: "Nov 15, 2023", genre: "Rock" },
+                { title: "Urban Stories", artist: "City Lights", date: "Nov 10, 2023", genre: "Rap" },
+                { title: "Jazz Reflections", artist: "Smooth Operators", date: "Nov 5, 2023", genre: "Jazz" },
+                { title: "Classical Moments", artist: "Symphony No. 5", date: "Oct 30, 2023", genre: "Classical" },
+                { title: "World Beats", artist: "Global Sounds Collective", date: "Oct 25, 2023", genre: "World" }
+            ];
+            
+            releases.forEach((release, index) => {
+                const genre = release.genre.toLowerCase();
+                const photo = getUniquePhoto(genre in musicPhotos ? genre : 'general', index);
+                
+                releasesGrid.innerHTML += `
+                    <div class="release-card">
+                        <div class="release-img" style="background-image: url('${photo}')"></div>
+                        <div class="release-content">
+                            <h3>${release.title}</h3>
+                            <p class="artist">${release.artist}</p>
+                            <p class="date"><i class="fas fa-calendar"></i> ${release.date}</p>
+                            <span class="badge" style="font-size: 10px; padding: 3px 8px;">${release.genre}</span>
+                            <div style="margin-top: 10px;">
+                                <button class="btn" style="padding: 5px 10px; font-size: 12px; background: #4ecdc4; color: white; margin-right: 5px;">Listen</button>
+                                <button class="btn" style="padding: 5px 10px; font-size: 12px; background: #ff6b6b; color: white;">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Load best of year
+        function loadBestOfYear() {
+            // Add event listeners for navigation
+            document.querySelectorAll('.best-nav-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    
+                    // Update active button
+                    document.querySelectorAll('.best-nav-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show the selected section
+                    document.querySelectorAll('.category-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.querySelector(`#${section}-section`).classList.add('active');
+                });
+            });
+            
+            // Load sample data for best of year
+            const topAlbums = [
+                { name: "Renaissance", artist: "Beyoncé", rating: "9.5" },
+                { name: "Midnights", artist: "Taylor Swift", rating: "9.2" },
+                { name: "Harry's House", artist: "Harry Styles", rating: "8.9" },
+                { name: "Un Verano Sin Ti", artist: "Bad Bunny", rating: "8.7" }
+            ];
+            
+            const albumGrid = document.querySelector('#topalbums-section .album-grid');
+            if (albumGrid) {
+                albumGrid.innerHTML = '';
+                topAlbums.forEach((album, index) => {
+                    albumGrid.innerHTML += `
+                        <div class="album-card">
+                            <div class="card-img" style="background-image: url('${getUniquePhoto('general', index + 8)}')"></div>
+                            <div class="card-content">
+                                <h3>${album.name}</h3>
+                                <p>Artist: ${album.artist}</p>
+                                <div class="card-details">
+                                    <span><i class="fas fa-star" style="color: #ffc107;"></i> ${album.rating}/10</span>
+                                    <span>Best of 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            // Load top artists
+            const topArtists = [
+                { name: "Beyoncé", genre: "Pop/R&B" },
+                { name: "Taylor Swift", genre: "Pop" },
+                { name: "Bad Bunny", genre: "Latin" },
+                { name: "Harry Styles", genre: "Pop" }
+            ];
+            
+            const artistGrid = document.querySelector('#topartists-section .artist-grid');
+            if (artistGrid) {
+                artistGrid.innerHTML = '';
+                topArtists.forEach((artist, index) => {
+                    artistGrid.innerHTML += `
+                        <div class="artist-card">
+                            <div class="card-img" style="background-image: url('${getUniquePhoto('general', index + 12)}')"></div>
+                            <div class="card-content">
+                                <h3>${artist.name}</h3>
+                                <p>Genre: ${artist.genre}</p>
+                                <div class="card-details">
+                                    <span><i class="fas fa-star" style="color: #ffc107;"></i> Top Artist</span>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // Load events
+        function loadEvents() {
+            const eventsCalendar = document.querySelector('.events-calendar');
+            if (!eventsCalendar) return;
+            
+            eventsCalendar.innerHTML = '';
+            
+            const events = [
+                { name: "Winter Music Festival", date: "15", month: "DEC", location: "Aspen, CO", type: "Festival" },
+                { name: "New Year's Eve Concert", date: "31", month: "DEC", location: "New York, NY", type: "Concert" },
+                { name: "Grammy Awards 2024", date: "28", month: "JAN", location: "Los Angeles, CA", type: "Award Show" },
+                { name: "Jazz & Blues Weekend", date: "12-14", month: "JAN", location: "Chicago, IL", type: "Festival" },
+                { name: "Rock the Mountains", date: "20", month: "JAN", location: "Denver, CO", type: "Concert" },
+                { name: "Pop Sensation World Tour", date: "5", month: "FEB", location: "London, UK", type: "Concert" }
+            ];
+            
+            events.forEach((event, index) => {
+                eventsCalendar.innerHTML += `
+                    <div class="event-card-large">
+                        <div class="event-img" style="background-image: url('${getUniquePhoto('events', index)}')"></div>
+                        <div class="event-details">
+                            <div class="event-date">
+                                <div class="day">${event.date}</div>
+                                <div class="month">${event.month}</div>
+                            </div>
+                            <div class="event-info">
+                                <h3>${event.name}</h3>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+                                <span class="badge" style="font-size: 10px; padding: 3px 8px;">${event.type}</span>
+                                <button class="btn" style="padding: 8px 15px; margin-top: 10px; background: #4ecdc4; color: white; font-size: 14px;">Get Tickets</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Load reviews
+        function loadReviews() {
+            const reviewsList = document.querySelector('.reviews-list');
+            const topRatedList = document.querySelector('.top-rated-list');
+            
+            if (!reviewsList || !topRatedList) return;
+            
+            // Load reviews
+            const reviews = [
+                { user: "Alex Johnson", userImg: "https://images.unsplash.com/photo-1494790108755-2616b786d4d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", rating: 5, title: "A Masterpiece of Modern Pop", content: "This album redefines the genre with its innovative production and heartfelt lyrics. Every track is a journey.", album: "Midnights", artist: "Taylor Swift", date: "Dec 5, 2023" },
+                { user: "Maria Garcia", userImg: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", rating: 4, title: "Solid Rock Album with Great Energy", content: "The guitar work is exceptional and the vocals are powerful. A must-listen for rock enthusiasts.", album: "Electric Dreams", artist: "Thunder Road", date: "Dec 2, 2023" },
+                { user: "David Chen", userImg: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", rating: 5, title: "Jazz at Its Finest", content: "This album takes you on a musical journey through time. The improvisation is breathtaking.", album: "Blue Notes", artist: "Jazz Collective", date: "Nov 28, 2023" }
+            ];
+            
+            reviewsList.innerHTML = '';
+            reviews.forEach(review => {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                }
+                
+                reviewsList.innerHTML += `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="reviewer-img" style="background-image: url('${review.userImg}')"></div>
+                                <div>
+                                    <div class="reviewer-name">${review.user}</div>
+                                    <div class="review-rating">${stars}</div>
+                                </div>
+                            </div>
+                            <div class="review-date">${review.date}</div>
+                        </div>
+                        <h3 class="review-title">${review.title}</h3>
+                        <p class="review-body">${review.content}</p>
+                        <div class="review-meta">
+                            <span>Album: <strong>${review.album}</strong> by ${review.artist}</span>
+                            <button class="btn" style="padding: 5px 10px; font-size: 12px; background: #4ecdc4; color: white;">Read More</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Load top rated
+            const topRated = [
+                { name: "Midnights", artist: "Taylor Swift", rating: 4.8 },
+                { name: "Renaissance", artist: "Beyoncé", rating: 4.7 },
+                { name: "Harry's House", artist: "Harry Styles", rating: 4.6 },
+                { name: "Un Verano Sin Ti", artist: "Bad Bunny", rating: 4.5 }
+            ];
+            
+            topRatedList.innerHTML = '';
+            topRated.forEach((item, index) => {
+                topRatedList.innerHTML += `
+                    <div class="top-rated-item">
+                        <div class="top-rated-img" style="background-image: url('${getUniquePhoto('general', index + 16)}')"></div>
+                        <div class="top-rated-info">
+                            <h4>${item.name}</h4>
+                            <p>${item.artist}</p>
+                            <div class="rating">
+                                ${'<i class="fas fa-star"></i>'.repeat(Math.floor(item.rating))}${item.rating % 1 >= 0.5 ? '<i class="fas fa-star-half-alt"></i>' : ''}
+                                <span> ${item.rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Load articles
+        function loadArticles() {
+            const articlesGrid = document.querySelector('.articles-grid');
+            if (!articlesGrid) return;
+            
+            articlesGrid.innerHTML = '';
+            
+            const articles = [
+                { title: "The Evolution of Rock Music in the 21st Century", author: "Sarah Williams", date: "Dec 10, 2023", category: "Features" },
+                { title: "Interview with Grammy-Nominated Jazz Artist", author: "Michael Brown", date: "Dec 8, 2023", category: "Interviews" },
+                { title: "How Streaming Changed the Music Industry", author: "Lisa Chen", date: "Dec 5, 2023", category: "News" },
+                { title: "A Beginner's Guide to Music Production", author: "David Lee", date: "Dec 3, 2023", category: "Guides" },
+                { title: "The Rise of K-Pop on Global Charts", author: "Ji-hoon Kim", date: "Nov 30, 2023", category: "Features" },
+                { title: "Classical Music for Modern Listeners", author: "Emily Wilson", date: "Nov 28, 2023", category: "Guides" }
+            ];
+            
+            articles.forEach((article, index) => {
+                articlesGrid.innerHTML += `
+                    <div class="article-card">
+                        <div class="article-img" style="background-image: url('${getUniquePhoto('general', index + 20)}')"></div>
+                        <div class="article-content">
+                            <span class="badge" style="font-size: 10px; padding: 3px 8px;">${article.category}</span>
+                            <h3>${article.title}</h3>
+                            <p>${article.author} explores the latest trends and insights in the music world...</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-user"></i> ${article.author}</span>
+                                <span><i class="fas fa-calendar"></i> ${article.date}</span>
+                            </div>
+                            <button class="btn" style="padding: 8px 15px; margin-top: 10px; background: #4ecdc4; color: white; font-size: 14px;">Read Article</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Search functionality
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (!searchTerm.trim()) {
+                alert('Please enter a search term');
+                return;
+            }
+            
+            alert(`Searching for: "${searchTerm}"\n\nResults would include:\n• Artists matching "${searchTerm}"\n• Albums with title containing "${searchTerm}"\n• Releases around "${searchTerm}" date\n\nThis is a demo - in a real site, this would show actual search results.`);
+        }
+
+        // Modal functions
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function showSignupModal() {
+            document.getElementById('signupModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // View artist details
+        function viewArtistDetails(artistName) {
+            alert(`Artist Details: ${artistName}\n\nPersonal Details:\n• Name: ${artistName}\n• Birth Date: Varies by artist\n• Nationality: Varies\n\nCareer Achievements:\n• Grammy Awards: Multiple\n• Chart Positions: #1 on Billboard\n• Albums Sold: Millions worldwide\n\nCollection:\n• Discography available\n• Live performances\n• Interviews and documentaries`);
+        }
+
+        // Newsletter form submission
+        document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            if (email) {
+                alert(`Thank you for subscribing with ${email}! You'll receive updates on new releases and events.`);
+                document.getElementById('newsletterEmail').value = '';
+            }
+        });
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+
+        // Initialize the home page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPage('home');
+            
+            // Add some interactivity to filter bars
+            document.addEventListener('change', function(e) {
+                if (e.target.id === 'genreFilter' || e.target.id === 'timeFilter' || e.target.id === 'sortFilter') {
+                    alert('Filters applied! This would update the displayed content in a real application.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
